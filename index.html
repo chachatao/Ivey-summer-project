@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scotiabank Interest Rate Products Map</title>
+  <style>
+    :root {
+      --bg: #f6f7fb;
+      --paper: #ffffff;
+      --ink: #1d2733;
+      --muted: #667085;
+      --line: #d7dde7;
+      --red: #c41230;
+      --green: #26734d;
+      --gold: #9d681a;
+      --blue: #256b9b;
+      --purple: #6550a4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.45;
+    }
+
+    header {
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+      padding: 32px 42px 26px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 960px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    main {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 19px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .panel,
+    .card,
+    table {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .panel {
+      padding: 20px;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .summary-item {
+      min-height: 94px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--red);
+      border-radius: 6px;
+      background: #fbfcfe;
+    }
+
+    .summary-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .summary-item span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+      margin: 20px 0 24px;
+    }
+
+    .card {
+      overflow: hidden;
+    }
+
+    .card h3 {
+      margin: 0;
+      padding: 14px;
+      color: #fff;
+      font-size: 15px;
+      line-height: 1.25;
+    }
+
+    .borrowing h3 { background: var(--red); }
+    .saving h3 { background: var(--green); }
+    .investment h3 { background: var(--gold); }
+    .cards-rate h3 { background: var(--blue); }
+    .business h3 { background: var(--purple); }
+
+    .card-body {
+      padding: 14px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: #445264;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      margin-top: 16px;
+    }
+
+    th,
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 13px;
+    }
+
+    th {
+      background: #eef2f7;
+      color: #445264;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    a {
+      color: #245f91;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 980px) {
+      header {
+        padding: 24px;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      .grid,
+      .summary,
+      .cards {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .grid,
+      .summary,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Scotiabank Interest Rate-Related Products Map</h1>
+    <p class="lead">
+      A structured overview of Scotiabank Canada product families where interest rates affect customer value, borrowing cost, competitive comparison, and potential market sentiment.
+    </p>
+  </header>
+
+  <main>
+    <section class="grid">
+      <div class="panel">
+        <h2>Scope Logic</h2>
+        <p>
+          Interest rate-related products are broader than mortgages. They include products where customers earn interest, pay interest, compare rates with competitors, or react to rate changes in the broader market.
+        </p>
+        <div class="summary">
+          <div class="summary-item">
+            <strong>Earn Interest</strong>
+            <span>Savings accounts, registered cash, investment cash, and business interest-bearing accounts.</span>
+          </div>
+          <div class="summary-item">
+            <strong>Lock In Return</strong>
+            <span>GICs, cashable GICs, redeemable GICs, and market-linked GICs.</span>
+          </div>
+          <div class="summary-item">
+            <strong>Pay Interest</strong>
+            <span>Mortgages, loans, auto financing, lines of credit, and credit cards.</span>
+          </div>
+          <div class="summary-item">
+            <strong>Track Benchmarks</strong>
+            <span>Prime rate, reference rates, Bank of Canada rate, and US Federal Funds target rate.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Reference Rates</h2>
+        <ul>
+          <li>Scotiabank Prime Lending Rate</li>
+          <li>Bank of Canada Overnight Target Rate</li>
+          <li>CAD Scotiabank Reference Rate</li>
+          <li>US Federal Funds Target Rate</li>
+          <li>USD Scotiabank Reference Rate</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="cards">
+      <article class="card borrowing">
+        <h3>Borrowing Products</h3>
+        <div class="card-body">
+          <span class="tag">Customer pays interest</span>
+          <ul>
+            <li>Fixed rate mortgages</li>
+            <li>Variable rate mortgages</li>
+            <li>Scotia Total Equity Plan (STEP)</li>
+            <li>ScotiaLine Personal Line of Credit</li>
+            <li>Student Line of Credit</li>
+            <li>Scotia Plan Personal Loan</li>
+            <li>Auto Loan and Grad Auto Loan</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card saving">
+        <h3>Saving and Deposit Products</h3>
+        <div class="card-body">
+          <span class="tag">Customer earns interest</span>
+          <ul>
+            <li>Scotia High Interest Savings Account</li>
+            <li>MomentumPLUS Savings Account</li>
+            <li>Money Master Savings Account</li>
+            <li>Savings Accelerator Account</li>
+            <li>TFSA, FHSA, and registered savings cash</li>
+            <li>U.S. Dollar Daily Interest Account</li>
+            <li>Investment Cash in CAD and USD</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card investment">
+        <h3>GIC and Investment Rate Products</h3>
+        <div class="card-body">
+          <span class="tag">Guaranteed or linked return</span>
+          <ul>
+            <li>Personal Redeemable GICs</li>
+            <li>Short-term Non-Redeemable GICs</li>
+            <li>Long-term Non-Redeemable GICs</li>
+            <li>Cashable GICs</li>
+            <li>Market Linked GICs</li>
+            <li>Guaranteed Income Optimizer</li>
+            <li>Registered plan investment cash</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card cards-rate">
+        <h3>Credit Card Products</h3>
+        <div class="card-body">
+          <span class="tag">APR and cash advance rates</span>
+          <ul>
+            <li>Purchase interest rate</li>
+            <li>Cash advance rate</li>
+            <li>Low-interest credit cards</li>
+            <li>Rewards and cash back cards</li>
+            <li>Student credit cards</li>
+            <li>Business credit cards</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card business">
+        <h3>Business Banking Products</h3>
+        <div class="card-body">
+          <span class="tag">Business rates</span>
+          <ul>
+            <li>Business Interest-Bearing Accounts</li>
+            <li>Dual Rate Investment Account</li>
+            <li>Right Size Savings for business</li>
+            <li>Business Investment Account</li>
+            <li>Business GICs</li>
+            <li>Business Line of Credit</li>
+            <li>Business credit cards</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <h2>Dashboard Lenses</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Lens</th>
+            <th>Relevant Product Families</th>
+            <th>Typical Sentiment Questions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Rate competitiveness</td>
+            <td>Mortgages, GICs, savings, LOC, business products</td>
+            <td>Is Scotiabank's rate better or worse than RBC, TD, BMO, CIBC, Tangerine, EQ Bank, or other competitors?</td>
+          </tr>
+          <tr>
+            <td>Affordability pressure</td>
+            <td>Mortgages, auto loans, personal loans, LOC, credit cards</td>
+            <td>How do customers discuss monthly payment burden, renewal anxiety, prime-rate changes, and debt carrying cost?</td>
+          </tr>
+          <tr>
+            <td>Savings appeal</td>
+            <td>HISA, MomentumPLUS, Savings Accelerator, TFSA/FHSA cash, GICs</td>
+            <td>How do customers react to promotional rates, bonus interest, terms, and cashable vs non-redeemable products?</td>
+          </tr>
+          <tr>
+            <td>Business utility</td>
+            <td>Business accounts, business GICs, business LOC, business cards</td>
+            <td>How do business customers discuss working capital cost, deposit return, financing accessibility, and rate transparency?</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="panel" style="margin-top: 20px;">
+      <h2>Official Sources Used</h2>
+      <ul>
+        <li><a href="https://www.scotiabank.com/ca/en/personal/rates-prices.html">Scotiabank Rates and Fees</a></li>
+        <li><a href="https://www.scotiabank.com/ca/en/personal/rates-prices/mortgages-rates.html">Scotiabank Mortgage Rates</a></li>
+        <li><a href="https://www.scotiabank.com/ca/en/personal/loans-lines.html">Scotiabank Loans and Lines of Credit</a></li>
+        <li><a href="https://www.scotiabank.com/ca/en/personal/rates-prices/savings-account-rates.html">Scotiabank Savings Account Interest Rates</a></li>
+        <li><a href="https://www.scotiabank.com/ca/en/personal/rates-prices/gic-rates.html">Scotiabank GIC Interest Rates</a></li>
+        <li><a href="https://www.scotiabank.com/ca/en/personal/rates-prices/credit-card-rates.html">Scotiabank Credit Card Interest Rates</a></li>
+        <li><a href="https://www.scotiabank.com/ca/en/small-business/rates-prices.html">Scotiabank Business Rates</a></li>
+      </ul>
+    </section>
+
+    <footer>
+      Static web app prototype for a Scotiabank interest rate-related product sentiment monitoring project.
+    </footer>
+  </main>
+</body>
+</html>
